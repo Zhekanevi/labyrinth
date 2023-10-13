@@ -61,7 +61,7 @@ class Enemy(GameSprite):
         if self.direction == 'right':
             self.rect.x += self.speed
             self.image = transform.scale(image.load('cyborg.png'), (65, 65))
-
+# клас для стіни
 class Wall(sprite.Sprite):
     def __init__(self, color1, color2, color3, wall_w, wall_h, wall_x, wall_y):
         super().__init__()
@@ -78,8 +78,8 @@ class Wall(sprite.Sprite):
 
     def reset(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
-enemy1 = Enemy('cyborg.png', 300, 300, 2)
-hero = Player('hero.png', 20, 20, 4)
+enemy1 = Enemy('grib1.png', 300, 300, 2)
+hero = Player('mario3.png', 20, 20, 4)
 gold = GameSprite('treasure.png', 550, 550, 0)
 # створюємо стіни
 wall1 = Wall(10, 100, 10, 200, 20, 20, 0)
@@ -111,7 +111,7 @@ while game:
     wall6.reset()
     wall7.reset()
     wall8.reset()
-    # wall8.reset()
+    
     clock.tick(30)
     display.update()
     if sprite.collide_rect(hero, wall1) or (sprite.collide_rect(hero, wall2)) or sprite.collide_rect(hero, wall3) or sprite.collide_rect(hero, wall4) or sprite.collide_rect(hero, wall5) or sprite.collide_rect(hero, wall6) or sprite.collide_rect(hero, wall7) or sprite.collide_rect(hero, enemy1):
